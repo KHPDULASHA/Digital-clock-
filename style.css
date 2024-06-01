@@ -22,16 +22,19 @@
 .clock {
   width: 100%;
   height: 100%;
-  background: rgba(26, 26, 71, 0.8);
+
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  background-clip: padding-box;
-  position: relative; /* Ensure positioning context for pseudo-elements */
-  overflow: hidden; /* Clip child elements to the radius */
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(255, 255, 255, 0.17);
 }
 .container::before {
   content: "";
@@ -41,8 +44,8 @@
   border-radius: 5px;
   position: absolute;
   left: -50px;
-  top: -10px;
-  z-index: 1;
+  top: 10px;
+  z-index: -1;
 }
 .container::after {
   content: "";
@@ -53,7 +56,7 @@
   position: absolute;
   right: -30px;
   bottom: -50px;
-  z-index: 1;
+  z-index: -1;
 }
 .clock span {
   font-size: 80px;
